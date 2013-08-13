@@ -9,18 +9,7 @@ GrowingDancer.prototype.constructor = GrowingDancer;
 
 GrowingDancer.prototype.step = function(){
   Dancer.prototype.step.call(this);
-  var self = this;
-  var grow = function() {
-    self.$node.animate({
-    borderWidth: "50px"
-    }, 200, shrink);
-  };
-  var shrink = function() {
-    self.$node.animate({
-    borderWidth: "10px"
-    }, 200);
-  };
-  grow();
+  this.$node.toggleClass("grownDancer");
 };
 
 GrowingDancer.prototype.lineUp = function() {

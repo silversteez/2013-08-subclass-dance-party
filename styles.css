@@ -24,15 +24,30 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+  -moz-transition: -moz-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.snoop{
+  border: 0px;
 }
 
 .dancerTransition{
-  -moz-transition: left 0.5s, top 0.5s;
-  -webkit-transition: left 0.5s, top 0.5s;
-  -o-transition: left 0.5s, top 0.5s;
-  transition: left 0.5s, top 0.5s;
+  -moz-transition: -moz-transform 0.5s, left 0.5s, top 0.5s;
+  -webkit-transition: -webkit-transform 0.5s, left 0.5s, top 0.5s;
+  -o-transition: -o-transform 0.5s, left 0.5s, top 0.5s;
+  transition: transform 0.5s, left 0.5s, top 0.5s;
 }
 .dancefloor{
   height:100%;
   width:100%;
+}
+
+.grownDancer{
+  -moz-transform: scale(4);
+  -webkit-transform: scale(4);
+  -o-transform: scale(4);
+  transform: scale(4);
 }
