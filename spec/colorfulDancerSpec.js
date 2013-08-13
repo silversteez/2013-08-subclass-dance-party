@@ -13,7 +13,7 @@ describe("colorfulDancer", function() {
     expect(colorfulDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it("should have a step function that changes its color", function() {
+  it("should have a step function that changes its node's color", function() {
     sinon.spy(colorfulDancer.$node, 'css');
     colorfulDancer.step();
     expect(colorfulDancer.$node.css.called).to.be.true;
