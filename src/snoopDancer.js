@@ -1,7 +1,5 @@
 var SnoopDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
-  // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
-  // so we must keep a copy of the old version of this function
   this.$node.addClass('snoop');
 };
 
@@ -14,7 +12,5 @@ SnoopDancer.prototype.step = function(){
 };
 
 SnoopDancer.prototype.lineUp = function() {
-  this.$node.css({
-    left: "20px"
-  });
+  this.setPosition(undefined, 20);
 };

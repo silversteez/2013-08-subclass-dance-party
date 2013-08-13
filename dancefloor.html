@@ -74,11 +74,12 @@
           $(".dancer").removeClass("dancerTransition");
           for (var i = 0; i < dancers.length; i++) {
             var curDancer = dancers[i];
-            var dancerTop = +curDancer.$node.css('top').split("px")[0];
-            var dancerLeft = +curDancer.$node.css('left').split("px")[0];
+            var dancerPos = curDancer.getPosition();
+            var dancerTop = dancerPos.top;
+            var dancerLeft = dancerPos.left;
             var destTop = event.pageY - ((event.pageY - dancerTop) * 0.99);
             var destLeft = event.pageX - ((event.pageX - dancerLeft) * 0.99);
-            dancers[i].$node.css({ top: "" + destTop + "px", left: "" + destLeft + "px" });
+            dancers[i].setPosition(destTop, destLeft);
           }
         });
 
@@ -87,7 +88,7 @@
           for (var i = 0; i < dancers.length; i++) {
             var newTop = $("body").height() * Math.random();
             var newLeft = $("body").width() *  Math.random();
-            dancers[i].$node.css({ top: "" + newTop + "px", left: "" + newLeft + "px" });
+            dancers[i].setPosition(newTop, newLeft);
           }
         });
 

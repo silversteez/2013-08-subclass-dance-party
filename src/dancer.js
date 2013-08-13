@@ -16,10 +16,13 @@ Dancer.prototype.step = function(){
 
 Dancer.prototype.setPosition = function(top, left){
   var styleSettings = {
-    top: top,
+    top: top || this._top,
     left: left
   };
   this.$node.css(styleSettings);
+
+  this._top = top || this._top;//store positions when setPosition is called via mousemove
+  this._left = left;
 };
 
 Dancer.prototype.getPosition = function(){

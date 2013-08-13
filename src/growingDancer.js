@@ -13,7 +13,5 @@ GrowingDancer.prototype.step = function(){
 };
 
 GrowingDancer.prototype.lineUp = function() {
-  this.$node.css({
-    left: "20px"
-  });
+  this.setPosition(undefined, 20);
 };
