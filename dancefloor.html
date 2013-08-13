@@ -15,9 +15,10 @@
     <div class="topbar">
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinkyDancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ColorfulDancer">add a colorfulDancer</a>
+      <a href="#" class="addDancerButton" id="colorfulDancer" data-dancer-maker-function-name="ColorfulDancer">add a colorfulDancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="GrowingDancer">add a growingDancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="SnoopDancer">add a snoopDancer</a>
+       <a href="#" class="add50DancersButton" data-dancer-maker-function-name="ColorfulDancer">add 50 dancers!</a>
     </div>
 
     <script>
@@ -50,7 +51,21 @@
           );
 
           $('body').append(dancer.$node);
+          dancers.push(dancer.$node);
         });
+
+        $(".add50DancersButton").on("click", function(event) {
+          for (var i = 0; i < 50; i++) {
+            $("#colorfulDancer").trigger("click");
+          }
+        });
+
+        $("body").mousemove(function(event) {
+          for (var i = 0; i < dancers.length; i++) {
+            // console.log(dancers[i]);
+          }
+        });
+
       });
     </script>
 
