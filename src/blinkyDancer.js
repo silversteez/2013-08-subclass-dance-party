@@ -11,3 +11,9 @@ BlinkyDancer.prototype.step = function(){
   Dancer.prototype.step.call(this);
   this.$node.toggle();
 };
+
+BlinkyDancer.prototype.lineUp = function() {
+  this.$node.animate({
+    left: "20px"
+  }, 200);
+};

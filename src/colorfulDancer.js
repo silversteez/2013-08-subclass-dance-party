@@ -18,3 +18,9 @@ ColorfulDancer.prototype.step = function(){
   Dancer.prototype.step.call(this);
   this.$node.css("border", "10px solid " + createRGBColor());
 };
+
+ColorfulDancer.prototype.lineUp = function() {
+  this.$node.animate({
+    left: "20px"
+  }, 200);
+};

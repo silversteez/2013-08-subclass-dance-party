@@ -22,3 +22,9 @@ GrowingDancer.prototype.step = function(){
   };
   grow();
 };
+
+GrowingDancer.prototype.lineUp = function() {
+  this.$node.animate({
+    left: "20px"
+  }, 200);
+};

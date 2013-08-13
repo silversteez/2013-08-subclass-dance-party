@@ -18,7 +18,8 @@
       <a href="#" class="addDancerButton" id="colorfulDancer" data-dancer-maker-function-name="ColorfulDancer">add a colorfulDancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="GrowingDancer">add a growingDancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="SnoopDancer">add a snoopDancer</a>
-       <a href="#" class="add50DancersButton" data-dancer-maker-function-name="ColorfulDancer">add 50 dancers!</a>
+      <a href="#" class="add50DancersButton" data-dancer-maker-function-name="ColorfulDancer">add 50 dancers!</a>
+      <a href="#" class="lineUpButton">Dancers...LINE UP!</a>
     </div>
 
     <script>
@@ -46,12 +47,12 @@
           // make a dancer with a random position
           var dancer = new dancerMakerFunction(
             $("body").height() * Math.random(),
-            $("body").width() * Math.random(),
+            $("body").width() *  Math.random(),
             Math.random() * 1000
           );
 
           $('body').append(dancer.$node);
-          dancers.push(dancer.$node);
+          dancers.push(dancer);
         });
 
         $(".add50DancersButton").on("click", function(event) {
@@ -60,9 +61,16 @@
           }
         });
 
+        $(".lineUpButton").on("click", function() {
+          for (var i = 0; i < dancers.length; i++) {
+            dancers[i].lineUp();
+            console.log("testing");
+          }
+        });
+
         $("body").mousemove(function(event) {
           for (var i = 0; i < dancers.length; i++) {
-            // console.log(dancers[i]);
+            console.log(event.pageX, event.pageY);
           }
         });
 

@@ -11,3 +11,9 @@ SnoopDancer.prototype.step = function(){
 //  Dancer.prototype.step.call(this);
   this.$node.append('<img src="snoop.gif"/>');
 };
+
+SnoopDancer.prototype.lineUp = function() {
+  this.$node.animate({
+    left: "20px"
+  }, 200);
+};
