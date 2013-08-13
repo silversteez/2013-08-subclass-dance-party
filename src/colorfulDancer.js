@@ -16,6 +16,5 @@ ColorfulDancer.prototype.step = function(){
     return "rgb(" + randomNum() + "," + randomNum() + "," + randomNum() +")";
   };
   Dancer.prototype.step.call(this);
-  console.log(createRGBColor())
   this.$node.css("border", "10px solid " + createRGBColor());
 };
