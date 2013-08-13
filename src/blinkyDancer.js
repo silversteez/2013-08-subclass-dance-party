@@ -13,7 +13,7 @@ BlinkyDancer.prototype.step = function(){
 };
 
 BlinkyDancer.prototype.lineUp = function() {
-  this.$node.animate({
+  this.$node.css({
     left: "20px"
-  }, 200);
+  });
 };

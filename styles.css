@@ -24,4 +24,8 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+  -moz-transition: left 2s, top 2s;
+  -webkit-transition: left 2s, top 2s;
+  -o-transition: left 2s, top 2s;
+  transition: left 2s, top 2s;
 }

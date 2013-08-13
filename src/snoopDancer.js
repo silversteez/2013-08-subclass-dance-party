@@ -13,7 +13,7 @@ SnoopDancer.prototype.step = function(){
 };
 
 SnoopDancer.prototype.lineUp = function() {
-  this.$node.animate({
+  this.$node.css({
     left: "20px"
-  }, 200);
+  });
 };
