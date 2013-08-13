@@ -21,6 +21,8 @@
       <a href="#" class="add50DancersButton" data-dancer-maker-function-name="ColorfulDancer">add 50 dancers!</a>
       <a href="#" class="lineUpButton">Dancers...LINE UP!</a>
     </div>
+    <div class="dancefloor">
+    </div>
 
     <script>
       $(document).ready(function(){
@@ -51,7 +53,7 @@
             Math.random() * 1000
           );
 
-          $('body').append(dancer.$node);
+          $('.dancefloor').append(dancer.$node);
           dancers.push(dancer);
         });
 
@@ -62,15 +64,30 @@
         });
 
         $(".lineUpButton").on("click", function() {
+          $(".dancer").addClass("dancerTransition");
           for (var i = 0; i < dancers.length; i++) {
             dancers[i].lineUp();
-            console.log("testing");
           }
         });
 
-        $("body").mousemove(function(event) {
+        $(".dancefloor").mousemove(function(event) {
+          $(".dancer").removeClass("dancerTransition");
           for (var i = 0; i < dancers.length; i++) {
-            console.log(event.pageX, event.pageY);
+            var curDancer = dancers[i];
+            var dancerTop = +curDancer.$node.css('top').split("px")[0];
+            var dancerLeft = +curDancer.$node.css('left').split("px")[0];
+            var destTop = event.pageY - ((event.pageY - dancerTop) * 0.99);
+            var destLeft = event.pageX - ((event.pageX - dancerLeft) * 0.99);
+            dancers[i].$node.css({ top: "" + destTop + "px", left: "" + destLeft + "px" });
+          }
+        });
+
+        $(".dancefloor").on("click", function(event){
+          $(".dancer").addClass("dancerTransition");
+          for (var i = 0; i < dancers.length; i++) {
+            var newTop = $("body").height() * Math.random();
+            var newLeft = $("body").width() *  Math.random();
+            dancers[i].$node.css({ top: "" + newTop + "px", left: "" + newLeft + "px" });
           }
         });
 
