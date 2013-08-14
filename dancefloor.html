@@ -77,9 +77,17 @@
             var dancerPos = curDancer.getPosition();
             var dancerTop = dancerPos.top;
             var dancerLeft = dancerPos.left;
-            var destTop = event.pageY - ((event.pageY - dancerTop) * 0.99);
-            var destLeft = event.pageX - ((event.pageX - dancerLeft) * 0.99);
-            dancers[i].setPosition(destTop, destLeft);
+            if (Math.abs(event.pageY - dancerTop) < 100 && Math.abs(event.pageX - dancerLeft) < 100) {
+              // Dancers follow cursor mode
+              // var destTop = event.pageY - ((event.pageY - dancerTop) * 0.9);
+              // var destLeft = event.pageX - ((event.pageX - dancerLeft) * 0.9);
+              var destTop = dancerTop - (event.pageY - dancerTop);
+              var destLeft = dancerLeft - (event.pageX - dancerLeft);
+              var newTop = destTop - ((destTop - dancerTop) * 0.9);
+              var newLeft = destLeft - ((destLeft - dancerLeft) * 0.9);
+
+              dancers[i].setPosition(newTop, newLeft);
+            }
           }
         });
 
